@@ -1,0 +1,7 @@
+# target folder and binary files
+/target
+**/target
+**/main
+
+# VS Code settings
+.vscode/
