@@ -123,7 +123,7 @@ Los términos clave (ownership, borrowing, mutability, scope) se usan consistent
 
 ## 4. Conformidad con Estándares de Markdown
 
-### 4.1 Análisis según markdown.instructions.md
+### 4.1 Análisis según .github/instructions/markdown.instructions.md
 
 #### Cumplimiento de Front Matter (6 de 9 documentos)
 
