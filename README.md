@@ -24,7 +24,7 @@ The course is organized into several modules, each focusing on different aspects
 4. **Structs**: Defining and using custom data types.
 5. **Enums and Pattern Matching**: Working with enums and pattern matching techniques.
 6. **Administrative Tasks**: Managing projects with Cargo, Rust's package manager.
-7. ** Common collections**: Using vectors, hash maps, and other collection types.
+7. **Common collections**: Using vectors, hash maps, and other collection types.
 8. **Error Handling**: Handling errors using Result and Option types.
 9. **Generic types, Traits, and Lifetimes**: Advanced type system features in Rust.
 10. **Testing**: Writing and running tests in Rust.
