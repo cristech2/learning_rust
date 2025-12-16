@@ -1,101 +1,204 @@
 ---
-post_title: OwnerShip in Rust
-author1: Cristian Rosales
-post_slug: 08_Ownership
-microsoft_alias: 
-featured_image: 
-categories: [Rust, Programming, Memory Management]
-tags: ["Ownership","memory management", "rust"]
-ai_note: No
-summary: An in-depth exploration into Rust's Ownership model, its principles, and how it ensures memory safety without a garbage collector.
+post_title: Ownership in Rust
+author: Cristian Rosales
+slug: ownership-rust
+categories: [Rust, Advanced Concepts]
+tags: ["ownership", "memory", "move", "copy", "stack", "heap"]
+summary: Learn about the Ownership model in Rust, its rules, implications and practical examples to understand how Rust guarantees memory safety without a garbage collector.
 post_date: 2025-12-13
 ---
 
-## Understanding Ownership in Rust
+## Ownership in Rust
 
-Ownership is one of the most distinctive features of Rust, setting it apart from many other programming languages. It is a system that manages memory and ensures safety without the need for a garbage collector. In this article, we will explore the principles of ownership in Rust, how it works, and its implications for memory management.
+**Key Concept**: Ownership is Rust's memory management system that guarantees safety and efficiency without the need for a garbage collector, through strict rules about ownership and the data lifecycle.
 
-### Stack vs. Heap Memory
+---
 
-Before diving into ownership, it's essential to understand the difference between stack and heap memory:
-- **Stack Memory**: This is where stored data with a known, fixed size at compile time resides.
-                    Variables like integers and booleans are stored on the stack. Stack memory is fast and automatically managed. Stack memory is fast and small in size.
-- **Heap Memory**: This is used for data that can grow or shrink in size at runtime, such as vectors and strings. Heap memory is larger but requires manual management, which is where Rust's ownership model comes into play.
+### 📚 Fundamental Concepts
 
-### How is memory handled when creating a complex data type like a String
+Ownership is the central pillar of Rust for memory management and compile-time safety. Understanding ownership is essential to avoid common errors such as memory leaks, dangling pointers, and race conditions.
 
-When you create a complex data type like a `String`, Rust allocates memory on the heap to store the string data. The `String` type itself, however, is stored on the stack and contains a pointer to the heap memory, along with its length and capacity.
-Looking at the following code:
+- **Ownership**: 
+  - **Each value in Rust has a unique owner:**
+  - **There can only be one owner at a time.**
+  - **When the owner goes out of scope, the value is dropped.**
+- **Move**: When assigning or passing a value to another variable or function, ownership is transferred (move) and the original variable becomes invalid.
+- **Copy**: Simple types (such as integers) implement the `Copy` trait, allowing the value to be duplicated without transferring ownership.
+- **Stack vs Heap**: Rust differentiates between data stored on the stack (fixed size, fast) and heap (dynamic size, requires ownership management).
+
+#### Golden Rules of Ownership
+
+1. **Each value has a unique owner:** Only one variable can own a value at any given time. This prevents ambiguities about who should free the memory and avoids errors like double free or data corruption. In this way, Rust guarantees that there is always a clear responsible subjet for the resource.
+2. **There can only be one owner at a time.** When assigning or passing the value to another variable or function, ownership is transferred and the original variable is no longer valid. This avoids risks of using invalid data (dangling pointers) and ensures that only one part of the code can modify or free the resource.
+3. **When the owner goes out of scope, the value is freed:** Rust automatically frees the memory when the owning variable goes out of scope, preventing memory leaks and manual releases. This reduces human errors and makes resource management safer and more predictable.
+
+#### Diagram: Stack vs Heap
+
+```mermaid
+flowchart LR
+    subgraph Stack
+        subgraph my_string
+            S1[ptr: 0x01234567]
+            S2[length: 5]
+            S3[capacity: 5]
+        end
+        other_vars[other variables]
+        another_var[more variables]
+    end
+
+    subgraph Heap
+        subgraph s1_data [address: 0x01234567]
+            H1["0: h"]
+            H2["1: e"]
+            H3["2: l"]
+            H4["3: l"]
+            H5["4: o"]
+        end
+        other_heap_data[other heap data]
+        another_heap_data[more heap data]
+    end
+
+    S1 -- points to --> s1_data
+```
+
+---
+
+
+### 💡 Practical Examples
+
+#### Example 1: Ownership Transfer (move)
 
 ```rust
-let s1 = String::from("hello");
+fn main() {
+    let my_string: String = String::from("Hello, Ownership!");
+    println!("Original string: {}", my_string);
+    let moved_string: String = my_string;
+    println!("Now moved_string is the owner: {}", moved_string);
+    // println!("Trying to use my_string: {}", my_string); // Compilation error
+}
 ```
-* **Stack**
-  
-|   name   | value      |
-| :------: | :--------- |
-|   ptr    | 0x01234567 |
-|  length  | 5          |
-| capacity | 5          |
 
-* **Heap 0x01234567**
-  
-| index | value |
-| :---: | :---: |
-|   0   |   h   |
-|   1   |   e   |
-|   2   |   l   |
-|   3   |   l   |
-|   4   |   o   |
+**Explanation**: When assigning `my_string` to `moved_string`, ownership is transferred. Using `my_string` after the transfer results in a compile-time error.
 
-In this example, `s1` is a variable that owns the `String` data. The actual string data ("hello") is stored on the heap, while `s1` holds the pointer to that data, along with its length and capacity on the stack.
+```mermaid
+flowchart LR
+    subgraph Stack
+        s1[my_string]
+        s2[moved_string]
+    end
+    subgraph Heap
+        heap1["Hello, Ownership!" ]
+    end
+    s1[my_string]--move-->s2[moved_string]
+    s2 --ptr--> heap1["Hello, Ownership!" ]
+```
 
-Now look at what happens when we assign `s1` to another variable `s2`:
+#### Example 2: Copy of Primitive Types (Copy)
 
 ```rust
-let s2 = s1;
+fn main() {
+    let my_number: i32 = 42;
+    println!("Original number before copy_example(): {}", my_number);
+    let copied_number: i32 = my_number;
+    println!("Copied number: {}", copied_number);
+    println!("Original number after copy: {}", my_number);
+}
 ```
-We might expect that both `s1` and `s2` would now point to the same string data on the heap.
-However, in Rust, this is not the case. Instead, Rust performs a "move" operation. Rust transfers ownership of the string data from `s1` to `s2`. After this operation, `s1` is no longer valid, and attempting to use it will result in a compile-time error.
 
-### The Three Rules of Ownership
+**Explanation**: Primitive types implement the `Copy` trait, so the assignment creates a copy and both variables are valid.
 
-Rust's ownership model is built on three fundamental rules:
-1. **Each value in Rust has a variable that’s called its owner.**
-2. **There can only be one owner at a time.**
-3. **When the owner goes out of scope, the value will be dropped.**
+#### Example 3: Ownership in Functions
 
-These rules help Rust manage memory efficiently and prevent common issues like dangling pointers and memory leaks.\
-
-#### Rule number 1: Each value in Rust has a variable that’s called its owner.
-
-In Rust, every value has a single owner, which is the variable that holds the value.
-For example:
 ```rust
-let x = 5; // x is the owner of the value 5
-let s = String::from("hello"); // s is the owner of the String "hello"
+fn get_ownership_example(some_string: String) {
+    println!("Hi!, i'm inside the function get_ownership_example()");
+    println!("I'm the owner of the string: {}", some_string);
+    println!("When this function ends, the string will be dropped.");
+}
+
+fn main() {
+    let my_string: String = String::from("Hello, Rust!");
+    println!("Original string: {}", my_string);
+    get_ownership_example(my_string);
+    // println!("Trying to use my_string: {}", my_string); // Compilation error
+}
 ```
-Never can two variables own the same value at the same time. If you try to assign one variable to another, Rust will move the ownership from the first variable to the second, and the first variable will no longer be valid.
 
-#### Rule number 2: There can only be one owner at a time.
+**Explanation**: When passing `my_string` to the function, ownership is transferred and the original variable becomes invalid after the call.
 
-When you assign a value from one variable to another, Rust transfers ownership from the first variable to the second. The first variable becomes invalid and cannot be used anymore.
-```rustlet s1 = String::from("hello");
-let s2 = s1; // ownership of the String is moved from s1 to s2
-// println!("{}", s1); // This line would cause a compile-time error because s1 is no longer valid
-```
-This rule helps prevent data races and ensures that there is always a clear owner for each value.
+#### Example 4: Returning Ownership from Functions
 
-#### Rule number 3: When the owner goes out of scope, the value will be dropped.
-
-When a variable goes out of scope, Rust automatically calls the `drop` function to free the memory associated with the value. This is done to prevent memory leaks.
 ```rust
-{
-    let s = String::from("hello"); // s is valid within this scope
-} // s goes out of scope here, and the memory for the String is freed
+fn give_a_ownership() -> String {
+    let some_string: String = String::from("Hello, I'm gifted to you!");
+    println!("Hi!, i'm give_a_ownership(). I'm creating a string and giving you ownership of it.");
+    println!("The string is: {}", some_string);
+    println!("Enjoy your new string!");
+    some_string
+}
+
+fn take_and_give_back_ownership(a_string: String) -> String {
+    println!("Hi!, i'm take_and_give_back_ownership(). I'm taking ownership of your string.");
+    println!("The string is: {}", a_string);
+    println!("Now, I'm giving the ownership back to you.");
+    println!("Enjoy your string again!. Thank you for trusting me with it.");
+    a_string
+}
+
+fn main() {
+    let new_string: String = give_a_ownership();
+    println!("Received string from give_a_ownership(): {}", new_string);
+    let returned_string: String = take_and_give_back_ownership(new_string);
+    println!("Received string back from take_and_give_back_ownership(): {}", returned_string);
+}
 ```
-This automatic memory management is a key feature of Rust's ownership model, ensuring that memory is efficiently used without the need for a garbage collector and minimizing the manual memory management required by the programmer avoiding common pitfalls like dangling pointers and memory leaks.
 
-### Conclusion
+**Explanation**: Functions can transfer ownership by returning values. This way, ownership can "travel" between functions and variables.
 
-Rust's ownership model is a powerful and unique feature that ensures memory safety and efficient memory management without the need for a garbage collector. By adhering to the three rules of ownership, Rust prevents common programming errors related to memory management, such as dangling pointers and memory leaks. Understanding and leveraging Rust's ownership system is crucial for writing safe and efficient Rust programs.
+#### Example 5: Ownership and Scope
+
+```rust
+fn main() {
+    {
+        let s = String::from("scoped");
+        println!("Inside scope: {}", s);
+    } // s is automatically freed here
+    // println!("Outside scope: {}", s); // Error: s no longer exists
+}
+```
+
+**Explanation**: When a variable goes out of scope, Rust automatically frees the associated memory.
+
+---
+
+
+### ⚠️ Important Points
+
+- **No double free**: Rust prevents errors like double free by invalidating the original variable after a move.
+- **No dangling pointers**: When transferring ownership, Rust guarantees that there are no invalid references.
+- **Copy vs Move**: Only types that implement `Copy` (integers, bool, char, etc.) can be copied; others are moved.
+- **Borrowing and references**: Ownership is the foundation for the borrowing system (borrowing), which allows temporary references without transferring ownership. Next, we will explore this concept in detail.
+- **Golden rules**: Always remember the three fundamental rules of ownership.
+
+---
+
+
+### 🔗 Relations and Context
+
+**Related previous topics**:
+- [Variables and data types](04_Variables.md)
+- [Functions in Rust](05_Functions.md)
+- [Control flow](06_Flow_Control.md)
+
+**Prerequisites**:
+- Understand stack and heap
+- Primitive and complex types
+
+**Next topics**:
+- [Borrowing and references](09_Borrow.md)
+---
+
+
+### 📖 References
+
+- [Rust Book - Chapter 4: Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)
