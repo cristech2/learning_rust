@@ -1,50 +1,77 @@
+---
+post_title: Hello World with Rust using Cargo
+author: Cristian Rosales
+slug: hello-world-rust-cargo
+categories: [Rust, Fundamentals]
+tags: ["cargo", "hello-world", "setup"]
+summary: Learn how to create and run your first Rust program using Cargo, the Rust package manager and build system.
+post_date: 2025-12-12
+---
+
 ## Hello World with Rust using Cargo
 
-This is a simple "Hello, World!" program written in Rust using Cargo, the Rust package manager and build system.
+**Key Concept**: Cargo is Rust's package manager and build system that simplifies project creation, compilation, and execution of Rust programs.
 
-### Prerequisites
+---
 
-Before you begin, ensure you have Rust and Cargo installed on your machine. You can install them by following the instructions on the [official Rust website](https://www.rust-lang.org/tools/install).
+### 📚 Fundamental Concepts
 
-### Steps to Create the Project
+- **Cargo Projects**: A standardized project structure with `Cargo.toml` metadata file and organized source code directories
+- **Cargo.toml**: A manifest file containing project metadata, version, and dependencies
+- **Building and Running**: Using `cargo build` to compile and `cargo run` to execute your program
 
-1. **Create a new Cargo project**:
-   Open your terminal and run the following command to create a new Rust project named `hello_world`:
-   ```bash
-   cargo new hello_world
-   ```
-   This will create a new directory called `hello_world` with the necessary files.
-2. **Navigate to the project directory**:
-3. ```bash
-   cd hello_world
-   ```
-4. **Open the `main.rs` file**:
-   Open the `src/main.rs` file in your favorite text editor. You will see a default "Hello, World!" program.
-5. **Modify the `main.rs` file (optional)**:
-   You can modify the `main.rs` file to customize the message. For example:
-   ```rust
-   fn main() {
-       println!("Hello, World!");
-       println!("Welcome to Rust programming!");
-    }
-    ```
-6. **Build and run the project**:
-   In the terminal, run the following command to build 
-   ```bash
-    cargo build
-    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
-    Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
-    ```
-    and execute the program:
-    ```bash
-    cargo run
-    Hello, World!
-    Welcome to Rust programming!
-    ```
+---
 
+### 💡 Practical Examples
 
-### Conclusion
-You have successfully created and run a simple "Hello, World!" program in Rust using Cargo.
+#### Example 1: Basic Hello World Program
 
-### Additional Resources
-The information provided here is based on the official Rust documentation. For more details and advanced topics, refer to the [Rust Book](https://book.rustlang-es.org/ch01-03-hello-cargo).
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+**Explanation**: This is the simplest Rust program. The `main` function is the entry point where program execution begins. The `println!` macro prints text to the console and adds a newline.
+
+---
+
+#### Example 2: Multiple Output Lines
+
+```rust
+fn main() {
+    println!("Hello, world!");
+    println!("Welcome to Rust programming.");
+}
+```
+
+**Explanation**: You can call `println!` multiple times to print different messages. Each call produces output on a separate line, making it easy to display multiple lines of text.
+
+---
+
+### ⚠️ Important Points
+
+- **Function Declaration**: Every Rust program needs a `main` function where execution starts
+- **Macro Syntax**: `println!` is a macro (denoted by the `!`), not a regular function
+- **Semicolons**: Each statement must end with a semicolon (`;`)
+- **Cargo Project Structure**: Always use `cargo new` to create projects so the structure is correct and ready to build
+
+---
+
+### 🔗 Relations and Context
+
+**Related Previous Topics**: 
+- [01_Hello_World](01_Hello_World.md) - Running Rust without Cargo
+
+**Prerequisites**:
+- Rust and Cargo installed on your machine
+
+**Follow-up Topics**:
+- [03_Guessing_Game](03_Guessing_Game.md) - Interactive programs and user input
+
+---
+
+### 📖 References
+
+- [Rust Book - Hello, Cargo!](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html)
+- [Cargo Documentation](https://doc.rust-lang.org/cargo/)
