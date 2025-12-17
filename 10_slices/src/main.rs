@@ -27,7 +27,7 @@ fn first_word(s: &str) -> &str {
 }
 
 fn main() {
-    let mut my_string = String::from("hello world");
+    let my_string = String::from("hello world");
     let array = [1, 2, 3, 4, 5];
 
     // Using a slice of the array
