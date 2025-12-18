@@ -182,8 +182,8 @@ Common mistakes, pitfalls, and subtleties to keep in mind.
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [08_Ownership](08_Ownership.md) - Understanding ownership before learning slices
-- [09_Borrow](09_Borrow.md) - Borrowing mechanism that makes slices possible
+- [Ownership](01_Ownership.md) - Understanding ownership before learning slices
+- [Borrowing](02_Borrowing.md) - Borrowing mechanism that makes slices possible
 
 **Prerequisites**:
 - Understanding of ownership and borrowing rules
@@ -191,9 +191,7 @@ Common mistakes, pitfalls, and subtleties to keep in mind.
 - Basic understanding of arrays and strings
 
 **Follow-up Topics**:
-- Working with vectors and their slice equivalents
-- Pattern matching with slices
-- Iterator usage with slices
+- [Structs](../03_Structs_Enums/01_Structs.md) - How to define and use structs in Rust.
 
 ---
 

@@ -202,8 +202,8 @@ fn for_loop_example() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [04_Variables](04_Variables.md) - Variable types and mutability used in flow control
-- [05_Functions](05_Functions.md) - Functions containing flow control logic
+- [Variables and Mutability](02_Variables.md) - Variable types and mutability used in flow control
+- [Functions](03_Functions.md) - Functions containing flow control logic
 
 **Prerequisites**:
 - Understanding of boolean values and comparison operators
@@ -211,8 +211,8 @@ fn for_loop_example() {
 - Knowledge of functions
 
 **Follow-up Topics**:
-- [07_Practice_1](07_Practice_1.md) - Combining flow control with previous concepts
-- [08_Ownership](08_Ownership.md) - How flow control interacts with ownership rules
+- [Practice 1: Temperature Conversion](05_Practice_1.md) - Combining flow control with previous concepts
+- [Ownership](../02_Ownership_System/01_Ownership.md) - How flow control interacts with ownership rules
 
 ---
 

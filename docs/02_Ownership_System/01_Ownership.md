@@ -186,16 +186,16 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related previous topics**:
-- [Variables and data types](04_Variables.md)
-- [Functions in Rust](05_Functions.md)
-- [Control flow](06_Flow_Control.md)
+- [Variables and data types](../01_Fundamentals/02_Variables.md)
+- [Functions in Rust](../01_Fundamentals/03_Functions.md)
+- [Control flow](../01_Fundamentals/04_Control_Flow.md)
 
 **Prerequisites**:
 - Understand stack and heap
 - Primitive and complex types
 
 **Next topics**:
-- [Borrowing and references](09_Borrow.md)
+- [Borrowing and references](02_Borrowing.md)
 ---
 
 

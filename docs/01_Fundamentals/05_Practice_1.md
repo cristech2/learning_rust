@@ -183,9 +183,9 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [04_Variables](04_Variables.md) - Variable declaration and mutability for storing input values
-- [05_Functions](05_Functions.md) - Function definition with parameters and return values for conversions
-- [06_Flow_Control](06_Flow_Control.md) - Loops and conditionals to manage user interactions
+- [Variables and Mutability](02_Variables.md) - Variable declaration and mutability for storing input values
+- [Functions](03_Functions.md) - Function definition with parameters and return values for conversions
+- [Flow Control](04_Control_Flow.md) - Loops and conditionals to manage user interactions
 
 **Prerequisites**:
 - Understanding of variables and data types (especially `f64` for decimal numbers)
@@ -195,8 +195,8 @@ fn main() {
 - Basic knowledge of `std::io` for user input
 
 **Follow-up Topics**:
-- [08_Ownership](08_Ownership.md) - Understanding how ownership works with String input handling
-- [09_Borrow](09_Borrow.md) - References and borrowing in more complex scenarios
+- [Ownership](../02_Ownership_System/01_Ownership.md) - Understanding how ownership works with String input handling
+- [Borrowing](../02_Ownership_System/02_Borrowing.md) - References and borrowing in more complex scenarios
 
 ---
 

@@ -53,10 +53,8 @@ fn main() {
 - A text editor to write code
 
 **Follow-up Topics**:
-- Variables and data types (how to store and manipulate data)
-- Functions with parameters and return values
-- Control flow (if/else, loops)
-- Ownership and borrowing (Rust's unique memory safety system)
+- [Hello Cargo](02_Hello_Cargo.md)
+- [Variables and Mutability](../01_Fundamentals/02_Variables.md)
 
 ---
 

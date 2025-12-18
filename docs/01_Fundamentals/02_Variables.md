@@ -148,17 +148,17 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [02_Hello_Cargo](02_Hello_Cargo.md) - Project structure basics
-- [03_Guessing_Game](03_Guessing_Game.md) - Variables in context of interactive programs
+- [Hello Cargo](../00_Getting_Started/02_Hello_Cargo.md) - Project structure basics
+- [Guessing Game](01_Guessing_Game.md) - Variables in context of interactive programs
 
 **Prerequisites**:
 - Basic understanding of Cargo projects
 - Familiarity with function syntax
 
 **Follow-up Topics**:
-- [05_Functions](05_Functions.md) - Using variables in function parameters and returns
-- [08_Ownership](08_Ownership.md) - How variables interact with Rust's ownership system
-- [09_Borrow](09_Borrow.md) - Borrowing and references to variables
+- [Functions](03_Functions.md) - Using variables in function parameters and returns
+- [Ownership](../02_Ownership_System/01_Ownership.md) - How variables interact with Rust's ownership system
+- [Borrowing](../02_Ownership_System/02_Borrowing.md) - Borrowing and references to variables
 
 ---
 

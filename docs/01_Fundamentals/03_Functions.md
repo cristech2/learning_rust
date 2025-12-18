@@ -103,16 +103,16 @@ fn add_numbers_explicit_return(num1: i32, num2: i32) -> i32 {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [04_Variables](04_Variables.md) - Understanding variable types used in function parameters
-- [02_Hello_Cargo](02_Hello_Cargo.md) - Basic program structure
+- [Variables and Mutability](02_Variables.md) - Understanding variable types used in function parameters
+- [Hello Cargo](../00_Getting_Started/02_Hello_Cargo.md) - Basic program structure
 
 **Prerequisites**:
 - Understanding of variables and data types
 - Familiarity with the main function concept
 
 **Follow-up Topics**:
-- [06_Flow_Control](06_Flow_Control.md) - Control flow within function bodies
-- [08_Ownership](08_Ownership.md) - How function parameters interact with ownership
+- [Flow Control](04_Control_Flow.md) - Control flow within function bodies
+- [Ownership](../02_Ownership_System/01_Ownership.md) - How function parameters interact with ownership
 
 ---
 

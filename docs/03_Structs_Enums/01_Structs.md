@@ -229,9 +229,9 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [08_Ownership](08_Ownership.md) - Ownership rules and move semantics that affect struct fields
-- [09_Borrow](09_Borrow.md) - Borrowing and references when passing structs to functions
-- [04_Variables](04_Variables.md) - Primitive and compound types used as struct fields
+- [Ownership](../02_Ownership_System/01_Ownership.md) - Ownership rules and move semantics that affect struct fields
+- [Borrowing](../02_Ownership_System/02_Borrowing.md) - Borrowing and references when passing structs to functions
+- [Variables and Mutability](../01_Fundamentals/02_Variables.md) - Primitive and compound types used as struct fields
 
 **Prerequisites**:
 - Familiarity with ownership and move semantics
@@ -239,8 +239,7 @@ fn main() {
 - Basic knowledge of primitive and compound types (`String`, integers, `char`)
 
 **Follow-up Topics**:
-- [Rust Book - Example: Using Structs](https://doc.rust-lang.org/stable/book/ch05-02-example-structs.html) - More practical examples building on structs
-- [Rust Book - Method Syntax](https://doc.rust-lang.org/stable/book/ch05-03-method-syntax.html) - Implementing methods and associated functions on structs
+- [Method Syntax](02_Structs_Methods.md) - Implementing methods and associated functions on structs
 
 ---
 

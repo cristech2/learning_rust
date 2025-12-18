@@ -61,13 +61,13 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [01_Hello_World](01_Hello_World.md) - Running Rust without Cargo
+- [Hello World](01_Hello_World.md) - Running Rust without Cargo
 
 **Prerequisites**:
 - Rust and Cargo installed on your machine
 
 **Follow-up Topics**:
-- [03_Guessing_Game](03_Guessing_Game.md) - Interactive programs and user input
+- [Guessing Game](../01_Fundamentals/01_Guessing_Game.md) - Interactive programs and user input
 
 ---
 

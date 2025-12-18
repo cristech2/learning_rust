@@ -150,9 +150,9 @@ fn main() {
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [02_Hello_Cargo](02_Hello_Cargo.md) - Project structure and Cargo basics
-- [04_Variables](04_Variables.md) - Variable declaration and mutability
-- [05_Functions](05_Functions.md) - Function definition and organization
+- [Hello Cargo](../00_Getting_Started/02_Hello_Cargo.md) - Project structure and Cargo basics
+- [Variables and Mutability](02_Variables.md) - Variable declaration and mutability
+- [Functions](03_Functions.md) - Function definition and organization
 
 **Prerequisites**:
 - Understanding of Cargo projects and project structure
@@ -160,8 +160,8 @@ fn main() {
 - Familiarity with simple expressions and output
 
 **Follow-up Topics**:
-- [06_Flow_Control](06_Flow_Control.md) - Advanced control flow patterns
-- [08_Ownership](08_Ownership.md) - Deeper understanding of borrowing in complex scenarios
+- [Flow Control](04_Control_Flow.md) - Advanced control flow patterns
+- [Ownership](../02_Ownership_System/01_Ownership.md) - Deeper understanding of borrowing in complex scenarios
 
 ---
 

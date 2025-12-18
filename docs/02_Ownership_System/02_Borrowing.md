@@ -213,8 +213,8 @@ The diagram shows the critical insight:
 ### 🔗 Relations and Context
 
 **Related Previous Topics**: 
-- [08_Ownership](08_Ownership.md) - Understanding ownership before learning borrowing
-- [05_Functions](05_Functions.md) - Functions as the primary place where borrowing is used
+- [Ownership](01_Ownership.md) - Understanding ownership before learning borrowing
+- [Functions](../01_Fundamentals/03_Functions.md) - Functions as the primary place where borrowing is used
 
 **Prerequisites**:
 - Understanding of Rust's ownership system
@@ -222,7 +222,7 @@ The diagram shows the critical insight:
 - Familiarity with String and mutable variables
 
 **Follow-up Topics**:
-- [Slices](https://doc.rust-lang.org/book/ch04-03-slices.html) - String slices and other collection slices as references to contiguous elements
+- [Slices](03_Slices.md) - String slices and other collection slices as references to contiguous elements
 
 ---
 
