@@ -2,7 +2,7 @@
 post_title: Slice in Rust
 author: Cristian Rosales
 slug: slice-in-rust
-categories: [Rust, Fundamentals|Advanced Concepts]
+categories: [Rust, Advanced Concepts]
 tags: ["slice", "string slices", "array slices"]
 summary: Learn about slices in Rust, including their types, usage, and practical examples.
 post_date: 2025-12-17
