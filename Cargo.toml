@@ -1,4 +1,6 @@
 [workspace]
+resolver = "3"
+
 members = [
     "00_Getting_Started/02_Hello_Cargo",
     "01_Fundamentals/01_Guessing_Game",
@@ -10,8 +12,8 @@ members = [
     "02_Ownership_System/02_Borrow",
     "02_Ownership_System/03_slices",
     "03_Structs_Enums/01_Structs",
-    "03_Structs_Enums/02_Structs_Methods",
+    "03_Structs_Enums/02_Structs_Methods", "03_Structs_Enums/03_Enums",
 ]
 
 [workspace.metadata]
-edition = "2021"
+edition = "2024"
