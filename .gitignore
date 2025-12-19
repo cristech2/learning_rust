@@ -2,6 +2,7 @@
 /target
 **/target
 **/main
+**/*.exe
 
 # VS Code settings
 .vscode/
