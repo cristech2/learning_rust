@@ -12,7 +12,7 @@ members = [
     "02_Ownership_System/02_Borrow",
     "02_Ownership_System/03_slices",
     "03_Structs_Enums/01_Structs",
-    "03_Structs_Enums/02_Structs_Methods", "03_Structs_Enums/03_Enums", "03_Structs_Enums/04_practice-02",
+    "03_Structs_Enums/02_Structs_Methods", "03_Structs_Enums/03_Enums", "03_Structs_Enums/04_practice-02", "04_Package_Crates_Modules/01_Packages",
 ]
 
 [workspace.metadata]
